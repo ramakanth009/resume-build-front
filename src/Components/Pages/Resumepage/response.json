@@ -1,0 +1,81 @@
+{
+    "message": "Resume generated successfully.",
+    "resume": {
+        "certifications": [
+            "Python Certificate by Hackerrank"
+        ],
+        "education": [
+            {
+                "degree": "Bachelor of Technology in Electronics and Communication Engineering",
+                "graduationYear": "2020",
+                "institution": "Usha Rama College of Engineering and Technology"
+            }
+        ],
+        "header": {
+            "email": "kiran@email.com",
+            "github": "",
+            "linkedin": "",
+            "name": "Kiran",
+            "phone": "9874564322",
+            "portfolio": ""
+        },
+        "projects": [
+            {
+                "description": "Designed and developed a Python-based application using Fastapi and MySQL to extract features from pan cards. Utilized Python libraries such as OpenCV and pytesseract for image processing and OCR. Achieved an accuracy of 95% in feature extraction. Skills used: Python, Fastapi, MySQL.",
+                "name": "Pan Card Features Extraction"
+            },
+            {
+                "description": "Developed a Rasa-based chatbot using Python and HTML to provide customer support. Implemented natural language processing techniques to improve chatbot accuracy. Skills used: Rasa Framework, Python, HTML.",
+                "name": "Rasa Chatbot"
+            },
+            {
+                "description": "Created a Python-based resume builder using Generative AI and LLMs to generate resumes. Utilized Postgresql for data storage and retrieval. Achieved an accuracy of 90% in resume generation. Skills used: Generative AI, LLM, Python, Postgresql.",
+                "name": "Resume Builder"
+            },
+            {
+                "description": "Developed a Python-based sentiment analysis tool using NLP and Google LLM API to analyze customer feedback. Achieved an accuracy of 85% in sentiment classification. Skills used: NLP, Google LLM API, Python.",
+                "name": "Sentiment Analysis"
+            },
+            {
+                "description": "Created a Python-based ATS resume matcher using NLP and Google LLM API to match resumes with job descriptions. Achieved an accuracy of 80% in resume matching. Skills used: NLP, Google LLM API, Python.",
+                "name": "ATS Resume matcher"
+            }
+        ],
+        "skills": [
+            "Python",
+            "MySQL",
+            "Postgresql",
+            "Generative AI",
+            "NLP",
+            "LLMs",
+            "Django",
+            "Flask",
+            "Fastapi",
+            "Postman"
+        ],
+        "summary": "Highly motivated and detail-oriented Python Developer with a strong foundation in machine learning, natural language processing, and software development. Proficient in Python, MySQL, Postgresql, and various frameworks such as Django, Flask, and Fastapi.",
+        "workExperience": [
+            {
+                "companyName": "Ascend International",
+                "duration": "Jan 2023 - May 2024",
+                "position": "Machine Learning Intern",
+                "responsibilities": [
+                    "Designed and implemented machine learning algorithms using Python and NumPy, resulting in a 25% increase in model accuracy.",
+                    "Collaborated with the team to develop a basic deep learning model, utilizing TensorFlow and Keras frameworks.",
+                    "Conducted data preprocessing and feature engineering to improve model performance, reducing training time by 30%."
+                ]
+            },
+            {
+                "companyName": "Sun E-Learning",
+                "duration": "May 2024 - Present",
+                "position": "Python Developer Intern",
+                "responsibilities": [
+                    "Developed a Python-based data analysis tool using Pandas and NumPy, streamlining data processing by 40%.",
+                    "Implemented a Python script using requests and BeautifulSoup to scrape and parse data from a website, improving data accuracy by 20%.",
+                    "Collaborated with the team to design and implement a Python-based web application using Flask, resulting in a 50% increase in user engagement."
+                ]
+            }
+        ]
+    },
+    "status": "success"
+}
