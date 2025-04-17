@@ -8,6 +8,7 @@ import {
   Stack,
   CircularProgress,
   Alert,
+  Tooltip,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -62,6 +63,32 @@ const useStyles = {
   generateButton: {
     marginTop: "20px",
     marginBottom: "20px",
+  },
+  sectionContainer: {
+    position: "relative",
+    padding: "15px",
+    borderRadius: "8px",
+    border: "1px solid #f0f0f0",
+    marginBottom: "15px",
+  },
+  addButton: {
+    position: "absolute",
+    top: "10px",
+    right: "10px",
+    backgroundColor: "#f5f9ff",
+    boxShadow: "0 2px 5px rgba(0,0,0,0.08)",
+    "&:hover": {
+      backgroundColor: "#e3f2fd",
+      boxShadow: "0 3px 8px rgba(0,0,0,0.12)",
+    },
+    width: "36px",
+    height: "36px",
+  },
+  deleteButton: {
+    color: "#f44336",
+    "&:hover": {
+      backgroundColor: "#ffebee",
+    },
   },
 };
 
@@ -221,7 +248,7 @@ const ResumeBuilder = () => {
     setError(null);
     try {
       const response = await fetch(
-        "http://127.0.0.1:5000/generate_fresher_resume",
+        "http://15.207.6.153/generate_resume",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -328,7 +355,7 @@ const ResumeBuilder = () => {
               Work Experience
             </Typography>
             {formData.work_experience.map((exp, index) => (
-              <Box key={index}>
+              <Box key={index} sx={useStyles.sectionContainer}>
                 <TextField
                   label="Position"
                   value={exp.position}
@@ -381,19 +408,26 @@ const ResumeBuilder = () => {
                   placeholder="Describe your responsibilities and achievements"
                   sx={useStyles.inputField}
                 />
-                <IconButton
-                  onClick={() =>
-                    index === formData.work_experience.length - 1
-                      ? handleAddWorkExperience()
-                      : handleRemoveWorkExperience(index)
-                  }
-                >
-                  {index === formData.work_experience.length - 1 ? (
-                    <AddIcon />
-                  ) : (
-                    <DeleteIcon />
-                  )}
-                </IconButton>
+                <Tooltip title={index === formData.work_experience.length - 1 ? "Add Experience" : "Remove Experience"}>
+                  <IconButton
+                    onClick={() =>
+                      index === formData.work_experience.length - 1
+                        ? handleAddWorkExperience()
+                        : handleRemoveWorkExperience(index)
+                    }
+                    sx={
+                      index === formData.work_experience.length - 1
+                        ? useStyles.addButton
+                        : { ...useStyles.addButton, ...useStyles.deleteButton }
+                    }
+                  >
+                    {index === formData.work_experience.length - 1 ? (
+                      <AddIcon />
+                    ) : (
+                      <DeleteIcon />
+                    )}
+                  </IconButton>
+                </Tooltip>
               </Box>
             ))}
 
@@ -402,7 +436,7 @@ const ResumeBuilder = () => {
               Skills
             </Typography>
             {formData.skills.map((skill, index) => (
-              <Stack key={index} direction="row" alignItems="center">
+              <Box key={index} sx={useStyles.sectionContainer}>
                 <TextField
                   required
                   label={`Skill ${index + 1}`}
@@ -410,20 +444,27 @@ const ResumeBuilder = () => {
                   onChange={(e) => handleSkillChange(index, e.target.value)}
                   sx={useStyles.inputField}
                 />
-                <IconButton
-                  onClick={() =>
-                    index === formData.skills.length - 1
-                      ? handleAddSkill()
-                      : handleRemoveSkill(index)
-                  }
-                >
-                  {index === formData.skills.length - 1 ? (
-                    <AddIcon />
-                  ) : (
-                    <DeleteIcon />
-                  )}
-                </IconButton>
-              </Stack>
+                <Tooltip title={index === formData.skills.length - 1 ? "Add Skill" : "Remove Skill"}>
+                  <IconButton
+                    onClick={() =>
+                      index === formData.skills.length - 1
+                        ? handleAddSkill()
+                        : handleRemoveSkill(index)
+                    }
+                    sx={
+                      index === formData.skills.length - 1
+                        ? useStyles.addButton
+                        : { ...useStyles.addButton, ...useStyles.deleteButton }
+                    }
+                  >
+                    {index === formData.skills.length - 1 ? (
+                      <AddIcon />
+                    ) : (
+                      <DeleteIcon />
+                    )}
+                  </IconButton>
+                </Tooltip>
+              </Box>
             ))}
 
             {/* Academic Projects Section */}
@@ -431,7 +472,7 @@ const ResumeBuilder = () => {
               Academic Projects
             </Typography>
             {formData.Academic_projects.map((project, index) => (
-              <Box key={index}>
+              <Box key={index} sx={useStyles.sectionContainer}>
                 <TextField
                   required
                   label="Project Name"
@@ -450,19 +491,26 @@ const ResumeBuilder = () => {
                   }
                   sx={useStyles.inputField}
                 />
-                <IconButton
-                  onClick={() =>
-                    index === formData.Academic_projects.length - 1
-                      ? handleAddProject()
-                      : handleRemoveProject(index)
-                  }
-                >
-                  {index === formData.Academic_projects.length - 1 ? (
-                    <AddIcon />
-                  ) : (
-                    <DeleteIcon />
-                  )}
-                </IconButton>
+                <Tooltip title={index === formData.Academic_projects.length - 1 ? "Add Project" : "Remove Project"}>
+                  <IconButton
+                    onClick={() =>
+                      index === formData.Academic_projects.length - 1
+                        ? handleAddProject()
+                        : handleRemoveProject(index)
+                    }
+                    sx={
+                      index === formData.Academic_projects.length - 1
+                        ? useStyles.addButton
+                        : { ...useStyles.addButton, ...useStyles.deleteButton }
+                    }
+                  >
+                    {index === formData.Academic_projects.length - 1 ? (
+                      <AddIcon />
+                    ) : (
+                      <DeleteIcon />
+                    )}
+                  </IconButton>
+                </Tooltip>
               </Box>
             ))}
 
@@ -470,7 +518,7 @@ const ResumeBuilder = () => {
             <Typography variant="h6" sx={useStyles.sectionTitle}>
               Education
             </Typography>
-            <Box>
+            <Box sx={useStyles.sectionContainer}>
               <TextField
                 required
                 label="Degree"
@@ -512,7 +560,7 @@ const ResumeBuilder = () => {
               Certifications
             </Typography>
             {formData.certifications.map((cert, index) => (
-              <Stack key={index} direction="row" alignItems="center">
+              <Box key={index} sx={useStyles.sectionContainer}>
                 <TextField
                   label={`Certification ${index + 1}`}
                   value={cert}
@@ -521,20 +569,27 @@ const ResumeBuilder = () => {
                   }
                   sx={useStyles.inputField}
                 />
-                <IconButton
-                  onClick={() =>
-                    index === formData.certifications.length - 1
-                      ? handleAddCertification()
-                      : handleRemoveCertification(index)
-                  }
-                >
-                  {index === formData.certifications.length - 1 ? (
-                    <AddIcon />
-                  ) : (
-                    <DeleteIcon />
-                  )}
-                </IconButton>
-              </Stack>
+                <Tooltip title={index === formData.certifications.length - 1 ? "Add Certification" : "Remove Certification"}>
+                  <IconButton
+                    onClick={() =>
+                      index === formData.certifications.length - 1
+                        ? handleAddCertification()
+                        : handleRemoveCertification(index)
+                    }
+                    sx={
+                      index === formData.certifications.length - 1
+                        ? useStyles.addButton
+                        : { ...useStyles.addButton, ...useStyles.deleteButton }
+                    }
+                  >
+                    {index === formData.certifications.length - 1 ? (
+                      <AddIcon />
+                    ) : (
+                      <DeleteIcon />
+                    )}
+                  </IconButton>
+                </Tooltip>
+              </Box>
             ))}
 
             <Button
@@ -560,12 +615,12 @@ const ResumeBuilder = () => {
             <Typography variant="h5" gutterBottom>
               Preview
             </Typography>
-            <Button
+            {/* <Button
               variant="contained"
               onClick={() => navigate('/choose-template')}
             >
               Choose Template
-            </Button>
+            </Button> */}
           </Box>
           {loading && (
             <Box
